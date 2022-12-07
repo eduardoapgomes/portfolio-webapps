@@ -48,7 +48,7 @@ function PowerApp({ Meters }) {
 
 
                     <div key={index} className="d-flex flex-wrap bg-dark align-items-center justify-content-center text-black">
-                        <div className="card bg-dark border-primary mb-3 mt-3" style={{ width: '22rem;' }}>
+                        <div className="card bg-dark border-primary mb-3 mt-3" style={{ width: '22rem' }}>
                             <div className="card-header border-secondary text-secondary">
                                 <h6>rms( )</h6>
                             </div>
@@ -107,7 +107,7 @@ export async function getServerSideProps() {
     const uri = "mongodb://localhost:27017";
     const client = new MongoClient(uri);
     const coll = client.db('powerapp').collection('Meter');
-    const filter = {};
+    const filter = { "Event.ID": { $gte: 1, $lte: 5 } };
 
     //const db = await client.db('powerapp')   
     const cursor = coll.find(filter);
