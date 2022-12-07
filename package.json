@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-webapps",
+  "name": "loginapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.10.2",
     "dotenv": "^16.0.3",
     "json-query": "^2.2.2",
     "jsonwebtoken": "^8.5.1",
@@ -20,8 +21,5 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-plotly.js": "^2.6.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.29.0"
   }
 }
