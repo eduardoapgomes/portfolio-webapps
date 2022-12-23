@@ -104,12 +104,17 @@ function PowerApp({ Meters }) {
 export default PowerApp
 
 export async function getServerSideProps() {
-    const uri = "mongodb://localhost:27017";
+    //localhost solution
+    //const uri = "mongodb://localhost:27017";
+    //const client = new MongoClient(uri);
+    //const coll = client.db('powerapp').collection('Meter');
+
+    const uri = "mongodb+srv://engeduardoapg:admin@clusterdbfree.zuupnme.mongodb.net/?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
-    const coll = client.db('powerapp').collection('Meter');
+    const coll = client.db('my_databases').collection('powerapp');
+
     const filter = { "Event.ID": { $gte: 1, $lte: 5 } };
 
-    //const db = await client.db('powerapp')   
     const cursor = coll.find(filter);
     const Meter = await cursor.toArray();
     await client.close();
